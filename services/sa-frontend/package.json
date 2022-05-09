@@ -1,0 +1,21 @@
+{
+  "name": "salogic-front",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@react-keycloak/web": "^3.4.0",
+    "jwt-decode": "^3.1.2",
+    "keycloak-js": "15.1.1",
+    "material-ui": "^0.20.0",
+    "prop-types": "15.6.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-scripts": "^1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

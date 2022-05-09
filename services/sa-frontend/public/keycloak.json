@@ -1,0 +1,12 @@
+{
+    "realm": "master",
+    "auth-server-url": "http://localhost:8081/auth/",
+    "ssl-required": "external",
+    "resource": "sa-frontend",
+    "verify-token-audience": true,
+    "credentials": {
+        "secret": "203f6e1b-7f4d-4a6b-bd4b-9517dcb6b1a0"
+    },
+    "confidential-port": 0,
+    "policy-enforcer": {}
+}

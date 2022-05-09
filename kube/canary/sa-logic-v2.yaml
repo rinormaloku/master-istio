@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sa-logic-v2
+  labels:
+    app: sa-logic
+    version: v2
+spec:
+  selector:
+    matchLabels:
+      app:  sa-logic
+      version: v2
+  replicas: 1
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: sa-logic
+        version: v2
+    spec:
+      serviceAccountName: sa-logic
+      containers:
+      - image: rinormaloku/sentiment-analysis-logic:istio-mastery
+        imagePullPolicy: Always
+        name: sa-logic
+        env:
+        - name: FAIL_RANDOMLY
+          value: "true"
+        ports:
+        - containerPort: 5000

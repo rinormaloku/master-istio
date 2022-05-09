@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-webapp
+  labels:
+    account: sa-webapp
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sa-webapp
+  labels:
+    app: sa-webapp
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  selector:
+    app: sa-webapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sa-webapp
+  labels:
+    app: sa-webapp
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app:  sa-webapp
+      version: v1
+  replicas: 1
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: sa-webapp
+        version: v1
+    spec:
+      serviceAccountName: sa-webapp
+      containers:
+      - image: rinormaloku/sentiment-analysis-web-app:istio-mastery
+        imagePullPolicy: Always
+        name: sa-webapp
+        env:
+        - name: SA_LOGIC_API_URL
+          value: http://sa-logic
+        ports:
+          - containerPort: 8080
