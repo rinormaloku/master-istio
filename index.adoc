@@ -351,8 +351,6 @@ Next, we need to configure what to do with the admitted traffic.
 
 The `VirtualService` resource configures traffic routing within the mesh for all proxies and gateways. In our instance, we want to route traffic from the ingress gateway to a set of workloads, as shown below.
 
-// ToDo update the above image to point to include more paths for the sa frontend
-
 .Istio's ingress gateway routes traffic based on the HTTP location header
 image::./images/istio-ingress-gateway-routing.png[Routing based on HTTP headers]
 
@@ -472,8 +470,6 @@ Next, we will investigate tracing requests while those pass throughout services.
 
 It's sensible to ask, "Why do we trace requests _nowadays_? We weren't doing that for monoliths?" -- switching to microservices solves some difficulties, though inadvertently, it brings some of the inherent properties of distributed systems that require other solutions. For example, the property of being distributed makes localizing failures relatively tricky. +
 Imagine that an end-user receives a failed request -- "what was the cause?" To locate the failure, you'd have to check all the services that participated in serving the request.
-
-// the arrows are confusing
 
 image::./images/localizing-failures-is-hard.png[A failed request]
 
@@ -771,8 +767,6 @@ istioctl proxy-config all deploy/sa-webapp -o json | \
 
 My output is shown below.
 
-// Todo rename to sa-webapp
-
 image::images/SVID.png[SPIFFE Verifiable Identity Document]
 
 We mentioned that certificates are used to encrypt traffic and protect it from man-in-the-middle attacks; let's verify that next.
@@ -834,7 +828,6 @@ transfer-encoding: chunked
 
 Suppose the data would be sensitive, such as passwords, JWT tokens (which can be used in replay attacks), and so on. This represents a dangerous attack vector and is a risk for your organization.
 
-//vulnerable instead of vulnerability
 image::images/mtls-and-non-mtls-traffic.png[example of encrypted and non encrypted traffic]
 
 Istio gives us the tools to prevent workloads in the mesh from receiving clear-text traffic.
@@ -1009,7 +1002,7 @@ The updated virtual service that configures traffic routing to keycloak can be a
 kubectl apply -f istio/vs-route-ingress-keycloak.yaml
 ----
 
-Next, we need to update the client application -- `sa-frontend` -- to redirect the user to the frontend. You can learn about the code [https://todo.com]. However, you can spare yourself the details and just apply the prebuilt image with those changes.
+Next, we need to update the client application -- `sa-frontend` -- to redirect the user to the frontend. You can learn about the code https://github.com/rinormaloku/master-istio/blob/main/services/sa-frontend/src/App.js#L80-L83[here]. However, you can spare yourself the details and just apply the prebuilt image with those changes.
 
 [source,bash,attributes]
 ----
@@ -1032,8 +1025,6 @@ The figure below, shows the roles and their access to our services, that we will
 * All users can access the `sa-frontend` service (which is important to initiate the authentication flow)
 * Authenticated users can access `sa-webapp` in addition to the `sa-frontend` access
 * Moderators can access all services
-
-// regular user twice todo fix with any user or non authenticated user
 
 image::./images/different-access-levels.png[]
 
