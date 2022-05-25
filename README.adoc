@@ -1,0 +1,33 @@
+= Learn Istio – How to Manage, Monitor, and Secure Microservices
+
+Three years ago, I wrote an article titled 
+  https://medium.com/google-cloud/back-to-microservices-with-istio-p1-827c872daa53["Back to Microservices with Istio"]
+for _Google Cloud - Community_. I published it there to reach a reader base interested in the latest technologies built on top of Kubernetes. At that point, Istio was a niche technology.
+
+.Fast-forward three years: 
+* I co-authored the book 
+  "https://www.manning.com/books/istio-in-action?utm_source=rinor&utm_medium=affiliate&utm_campaign=book_posta2_istio_9_30_18&a_aid=rinor&a_bid=9f6a70f3[Istio in Action]" 
+together with Christian Posta 
+  (https://twitter.com/christianposta[@christianposta]), which is recently published by Manning.
+* I joined 
+  https://www.solo.io/[Solo.io], 
+where I collaborate daily with clients to best utilize the service mesh capabilities. Be it for improving resiliency, reducing the risk of shipping new software, improving the security posture, or any of the myriad capabilities it enables.
+Kubernetes, which even then was reaching wide adoption, has now become a https://www.cncf.io/reports/cncf-annual-survey-2021/#:~:text=Kubernetes%20has%20crossed%20the%20adoption%20chasm%20to%20become%20a%20mainstream%20global%20technology%C2%A0[mainstream global technology], and as the number of services operated on it increases -- so will the number of organizations adopting Istio increase too.
+
+Furtherly, *Istio is not a niche technology anymore!* After many improvements in the user experience -- for example, installation and day-2 operations became way easier -- Istio has been adopted by organizations of different sizes and industries. At the same time, it is continuously expanding its toolset further by adding support for virtual machines, making the mesh scale into multiple clusters, and much more.
+
+The last thing you need to know is that the market lacks people with this kind of knowledge. We need _you!_ 
+That’s why I entirely rewrote this article to be a thorough introduction to Istio and show what it does under the hood because I don't want you only to know "what" it does but as well "how" it does it.
+
+.Here's the content that we'll cover in this handbook:
+* What Does Istio Do?
+* Introduction to Istio
+* Istio’s Architecture
+* How to Use Istio in Practice
+* How to Run the Services on the Mesh
+* Ingress Gateway – How to Admit Traffic into the Mesh
+* Observability
+* Traffic Management – Canary Deployments
+* Istio Security
+
+To read the article head over to https://www.freecodecamp.org/news/learn-istio-manage-microservices/[Learn Istio – How to Manage, Monitor, and Secure Microservices] published by freecodecamp.
