@@ -1,4 +1,4 @@
-= Learn Istio – How to Manage, Monitor, and Secure Microservices
+=== Excerpt of the article: *"Learn Istio – How to Manage, Monitor, and Secure Microservices"*
 
 Three years ago, I wrote an article titled 
   https://medium.com/google-cloud/back-to-microservices-with-istio-p1-827c872daa53["Back to Microservices with Istio"]
